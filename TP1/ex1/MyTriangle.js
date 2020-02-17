@@ -4,6 +4,7 @@
 class MyTriangle extends CGFobject {
     constructor(scene) {
         super(scene);
+        this.initBuffers();
     }
 
     initBuffers() {
