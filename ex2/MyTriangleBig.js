@@ -1,7 +1,7 @@
 /**
  * MyTriangle
  */
-class MyTriangle extends CGFobject {
+class MyTriangleBig extends CGFobject {
     constructor(scene) {
         super(scene);
         this.initBuffers();
@@ -9,9 +9,9 @@ class MyTriangle extends CGFobject {
 
     initBuffers() {
         this.vertices = [
-            -1, 0, 0,       // 0
-            1, 0, 0,      // 1
-            0, 1, 0        // 2
+            -2, 0, 0,       // 0
+            2, 0, 0,      // 1
+            0, 2, 0        // 2
         ]
 
         this.indices = [
