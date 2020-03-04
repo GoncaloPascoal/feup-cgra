@@ -23,6 +23,7 @@ class MyInterface extends CGFinterface {
         this.gui.add(this.scene, 'scaleFactor', 0.1, 5).name('Scale Factor');
 
         // Shape visibility control
+        this.gui.add(this.scene, 'displayTangram', 0.1, 5).name('Display Tangram');
 
         return true;
     }
