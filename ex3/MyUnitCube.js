@@ -8,13 +8,13 @@ function normalize(vec) {
 
     norm = Math.sqrt(norm);
 
-    newVec = [];
+    var normalized = [];
 
     for (elem of vec) {
-        newVec.push(elem / norm);
+        normalized.push(elem / norm);
     }
 
-    return newVec;
+    return normalized;
 }
 
 class MyUnitCube extends CGFobject {
