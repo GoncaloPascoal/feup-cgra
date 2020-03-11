@@ -64,4 +64,8 @@ class MyTangram extends CGFobject {
         this.purpleTriangle.display();
         this.scene.popMatrix();
     }
+
+    updateBuffers(complexity) {
+        
+    }
 }
