@@ -5,12 +5,10 @@ class MyTangram extends CGFobject {
         this.scene = scene;
 
         this.diamond = new MyDiamond(scene);
-        this.pinkTriangle = new MyTriangle(scene);
-        this.blueTriangle = new MyTriangleBig(scene);
-        this.orangeTriangle = new MyTriangleBig(scene);
+        this.triangle = new MyTriangle(scene);
+        this.triangleBig = new MyTriangleBig(scene);
         this.parallelogram = new MyParallelogram(scene);
-        this.redTriangle = new MyTriangleSmall(scene);
-        this.purpleTriangle = new MyTriangleSmall(scene);
+        this.triangleSmall = new MyTriangleSmall(scene);
     }
 
     display() {
@@ -26,27 +24,27 @@ class MyTangram extends CGFobject {
         this.scene.pushMatrix();
         this.scene.translate(-3, 1, 0);
         this.scene.rotate(degToRad(180), 0, 0, 1);
-        this.pinkTriangle.display();
+        this.triangle.display();
         this.scene.popMatrix();
 
         // BLUE TRIANGLE
         this.scene.pushMatrix();
         this.scene.translate(-2, 0, 0);
         this.scene.rotate(degToRad(-90), 0, 0, 1);
-        this.blueTriangle.display();
+        this.triangleBig.display();
         this.scene.popMatrix();
 
         // ORANGE TRIANGLE
         this.scene.pushMatrix();
         this.scene.rotate(degToRad(-45), 0, 0, 1);
-        this.orangeTriangle.display();
+        this.triangleBig.display();
         this.scene.popMatrix();
 
         // PARALLELOGRAM
         this.scene.pushMatrix();
-        this.scene.translate(2 * Math.SQRT2, -Math.SQRT2, 0);
-        this.scene.scale(-1, 1, 1);
-        this.scene.rotate(degToRad(45), 0, 0, 1);
+        this.scene.translate(Math.SQRT2, Math.SQRT2, 0);
+        this.scene.rotate(degToRad(-45), 0, 0, 1);
+        this.scene.rotate(degToRad(180), 1, 0, 0);
         this.parallelogram.display();
         this.scene.popMatrix();
 
@@ -54,18 +52,26 @@ class MyTangram extends CGFobject {
         this.scene.pushMatrix();
         this.scene.translate(1.7, -1.7, 0);
         this.scene.rotate(degToRad(135), 0, 0, 1);
-        this.redTriangle.display();
+        this.triangleSmall.display();
         this.scene.popMatrix();
 
         // PURPLE TRIANGLE
         this.scene.pushMatrix();
         this.scene.translate(2.5 * Math.SQRT2, -Math.SQRT2, 0);
         this.scene.rotate(degToRad(135), 0, 0, 1);
-        this.purpleTriangle.display();
+        this.triangleSmall.display();
         this.scene.popMatrix();
     }
 
     updateBuffers(complexity) {
         
+    }
+
+    enableNormalViz() {
+        this.diamond.enableNormalViz();
+        this.triangle.enableNormalViz();
+        this.triangleBig.enableNormalViz();
+        this.triangleSmall.enableNormalViz();
+        this.parallelogram.enableNormalViz();
     }
 }
