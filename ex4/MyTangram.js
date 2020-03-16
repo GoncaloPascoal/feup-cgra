@@ -5,61 +5,51 @@ class MyTangram extends CGFobject {
         this.scene = scene;
 
         this.diamond = new MyDiamond(scene);
-        this.triangle = new MyTriangle(scene);
-        this.triangleBig = new MyTriangleBig(scene);
+        this.greenTriangle = new MyTriangle(scene);
+        this.redTriangle = new MyTriangleBig(scene, MyTriangleBigColors.RED);
+        this.pinkTriangle = new MyTriangleBig(scene, MyTriangleBigColors.PINK);
         this.parallelogram = new MyParallelogram(scene);
-        this.triangleSmall = new MyTriangleSmall(scene);
+        this.lightBlueTriangle = new MyTriangleSmall(scene, MyTriangleSmallColors.LIGHT_BLUE);
+        this.blueTriangle = new MyTriangleSmall(scene, MyTriangleSmallColors.BLUE);
+
+        this.texture = new CGFtexture(scene, 'images/tangram.png');
 
         this.initMaterials();
     }
 
     initMaterials() {
-        this.materialGreen = new CGFappearance(this.scene);
-        this.materialGreen.setAmbient(...this.scene.hexToRgbA("#164d0c"));
-        this.materialGreen.setDiffuse(...this.scene.hexToRgbA("#2e961b"));
-        this.materialGreen.setSpecular(...this.scene.hexToRgbA("#60eb46"));
-        this.materialGreen.setShininess(10.0);
-
-        this.materialPink = new CGFappearance(this.scene);
-        this.materialPink.setAmbient(...this.scene.hexToRgbA("#75134e"));
-        this.materialPink.setDiffuse(...this.scene.hexToRgbA("#c43b8d"));
-        this.materialPink.setSpecular(...this.scene.hexToRgbA("#ff85ce"));
-        this.materialPink.setShininess(10.0);
-
-        this.materialBlue = new CGFappearance(this.scene);
-        this.materialBlue.setAmbient(...this.scene.hexToRgbA("#094769"));
-        this.materialBlue.setDiffuse(...this.scene.hexToRgbA("#167db5"));
-        this.materialBlue.setSpecular(...this.scene.hexToRgbA("#3db4f5"));
-        this.materialBlue.setShininess(10.0);
-
         this.materialOrange = new CGFappearance(this.scene);
-        this.materialOrange.setAmbient(...this.scene.hexToRgbA("#592d12"));
-        this.materialOrange.setDiffuse(...this.scene.hexToRgbA("#b55318"));
-        this.materialOrange.setSpecular(...this.scene.hexToRgbA("#f2823d"));
-        this.materialOrange.setShininess(10.0);
+        this.materialOrange.loadTexture('images/tangram.png');
+        this.materialOrange.setTextureWrap('REPEAT', 'REPEAT');
 
-        this.materialYellow = new CGFappearance(this.scene);
-        this.materialYellow.setAmbient(...this.scene.hexToRgbA("#876f1a"));
-        this.materialYellow.setDiffuse(...this.scene.hexToRgbA("#d6ad1c"));
-        this.materialYellow.setSpecular(...this.scene.hexToRgbA("#ffe159"));
-        this.materialYellow.setShininess(10.0);
+        this.materialGreen = new CGFappearance(this.scene);
+        this.materialGreen.loadTexture('images/tangram.png');
+        this.materialGreen.setTextureWrap('REPEAT', 'REPEAT');
 
         this.materialRed = new CGFappearance(this.scene);
-        this.materialRed.setAmbient(...this.scene.hexToRgbA("#3d0d0d"));
-        this.materialRed.setDiffuse(...this.scene.hexToRgbA("#962020"));
-        this.materialRed.setSpecular(...this.scene.hexToRgbA("#e84f4f"));
-        this.materialRed.setShininess(10.0);
+        this.materialRed.loadTexture('images/tangram.png');
+        this.materialRed.setTextureWrap('REPEAT', 'REPEAT');
 
-        this.materialPurple = new CGFappearance(this.scene);
-        this.materialPurple.setAmbient(...this.scene.hexToRgbA("#320c4d"));
-        this.materialPurple.setDiffuse(...this.scene.hexToRgbA("#501878"));
-        this.materialPurple.setSpecular(...this.scene.hexToRgbA("#af5fe8"));
-        this.materialPurple.setShininess(10.0);
+        this.materialPink = new CGFappearance(this.scene);
+        this.materialPink.loadTexture('images/tangram.png');
+        this.materialPink.setTextureWrap('REPEAT', 'REPEAT');
+
+        this.materialYellow = new CGFappearance(this.scene);
+        this.materialYellow.loadTexture('images/tangram.png');
+        this.materialYellow.setTextureWrap('REPEAT', 'REPEAT');
+
+        this.materialLightBlue = new CGFappearance(this.scene);
+        this.materialLightBlue.loadTexture('images/tangram.png');
+        this.materialLightBlue.setTextureWrap('REPEAT', 'REPEAT');
+
+        this.materialBlue = new CGFappearance(this.scene);
+        this.materialBlue.loadTexture('images/tangram.png');
+        this.materialBlue.setTextureWrap('REPEAT', 'REPEAT');
     }
 
     display() {
         // DIAMOND
-        //this.materialGreen.apply();       // commented to use custom material
+        this.materialOrange.apply();
         this.scene.pushMatrix();
         this.scene.translate(-2, 0, 0);
         this.scene.rotate(degToRad(15), 0, 0, 1);
@@ -67,27 +57,27 @@ class MyTangram extends CGFobject {
         this.diamond.display();
         this.scene.popMatrix();
 
-        // PINK TRIANGLE
-        this.materialPink.apply();
+        // GREEN TRIANGLE
+        this.materialGreen.apply();
         this.scene.pushMatrix();
         this.scene.translate(-3, 1, 0);
         this.scene.rotate(degToRad(180), 0, 0, 1);
-        this.triangle.display();
+        this.greenTriangle.display();
         this.scene.popMatrix();
 
-        // BLUE TRIANGLE
-        this.materialBlue.apply();
+        // RED TRIANGLE
+        this.materialRed.apply();
         this.scene.pushMatrix();
         this.scene.translate(-2, 0, 0);
         this.scene.rotate(degToRad(-90), 0, 0, 1);
-        this.triangleBig.display();
+        this.redTriangle.display();
         this.scene.popMatrix();
 
-        // ORANGE TRIANGLE
-        this.materialOrange.apply();
+        // PINK TRIANGLE
+        this.materialPink.apply();
         this.scene.pushMatrix();
         this.scene.rotate(degToRad(-45), 0, 0, 1);
-        this.triangleBig.display();
+        this.pinkTriangle.display();
         this.scene.popMatrix();
 
         // PARALLELOGRAM
@@ -99,20 +89,20 @@ class MyTangram extends CGFobject {
         this.parallelogram.display();
         this.scene.popMatrix();
 
-        // RED TRIANGLE
-        this.materialRed.apply();
+        // LIGHT BLUE TRIANGLE
+        this.materialLightBlue.apply();
         this.scene.pushMatrix();
         this.scene.translate(1.7, -1.7, 0);
         this.scene.rotate(degToRad(135), 0, 0, 1);
-        this.triangleSmall.display();
+        this.lightBlueTriangle.display();
         this.scene.popMatrix();
 
-        // PURPLE TRIANGLE
-        this.materialPurple.apply();
+        // BLUE TRIANGLE
+        this.materialBlue.apply();
         this.scene.pushMatrix();
         this.scene.translate(2.5 * Math.SQRT2, -Math.SQRT2, 0);
         this.scene.rotate(degToRad(135), 0, 0, 1);
-        this.triangleSmall.display();
+        this.blueTriangle.display();
         this.scene.popMatrix();
     }
 

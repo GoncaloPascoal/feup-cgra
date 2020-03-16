@@ -1,13 +1,20 @@
 /**
- * MyTriangle
+ * MyTriangleBig
  */
+
+var MyTriangleBigColors = {
+    RED: 0,
+    PINK: 1
+};
+
 class MyTriangleBig extends CGFobject {
-    constructor(scene) {
+    
+    constructor(scene, color) {
         super(scene);
-        this.initBuffers();
+        this.initBuffers(color);
     }
 
-    initBuffers() {
+    initBuffers(color) {
         this.vertices = [
             -2, 0, 0,       // 0
             2, 0, 0,        // 1
@@ -26,6 +33,29 @@ class MyTriangleBig extends CGFobject {
 
         for (var i = 0; i < 3; ++i) this.normals.push(0, 0, 1);
         for (var i = 0; i < 3; ++i) this.normals.push(0, 0, -1);
+
+        this.texCoords = [];
+
+        if (color == MyTriangleBigColors.RED) {
+            this.texCoords.push(
+                1, 0,
+                0, 0,
+                0.5, 0.5,
+                1, 0,
+                0, 0,
+                0.5, 0.5
+            );
+        }
+        else if (color == MyTriangleBigColors.PINK) {
+            this.texCoords.push(
+                1, 0,
+                1, 1,
+                0.5, 0.5,
+                1, 0,
+                1, 1,
+                0.5, 0.5
+            );
+        }
 
         this.primitiveType = this.scene.gl.TRIANGLES;
 
