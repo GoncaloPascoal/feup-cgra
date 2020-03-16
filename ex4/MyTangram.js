@@ -106,23 +106,23 @@ class MyTangram extends CGFobject {
         this.scene.popMatrix();
     }
 
-    updateBuffers(complexity) {
-        
-    }
-
     enableNormalViz() {
         this.diamond.enableNormalViz();
-        this.triangle.enableNormalViz();
-        this.triangleBig.enableNormalViz();
-        this.triangleSmall.enableNormalViz();
+        this.greenTriangle.enableNormalViz();
+        this.redTriangle.enableNormalViz();
+        this.pinkTriangle.enableNormalViz();
         this.parallelogram.enableNormalViz();
+        this.lightBlueTriangle.enableNormalViz();
+        this.blueTriangle.enableNormalViz();
     }
 
     disableNormalViz() {
         this.diamond.disableNormalViz();
-        this.triangle.disableNormalViz();
-        this.triangleBig.disableNormalViz();
-        this.triangleSmall.disableNormalViz();
+        this.greenTriangle.disableNormalViz();
+        this.redTriangle.disableNormalViz();
+        this.pinkTriangle.disableNormalViz();
         this.parallelogram.disableNormalViz();
+        this.lightBlueTriangle.disableNormalViz();
+        this.blueTriangle.disableNormalViz();
     }
 }
