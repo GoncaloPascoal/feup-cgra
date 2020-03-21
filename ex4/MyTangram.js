@@ -5,12 +5,12 @@ class MyTangram extends CGFobject {
         this.scene = scene;
 
         this.diamond = new MyDiamond(scene);
-        this.greenTriangle = new MyTriangle(scene);
-        this.redTriangle = new MyTriangleBig(scene, MyTriangleBigColors.RED);
-        this.pinkTriangle = new MyTriangleBig(scene, MyTriangleBigColors.PINK);
+        this.pinkTriangle = new MyTriangle(scene);
+        this.blueTriangle = new MyTriangleBig(scene, MyTriangleBigColors.BLUE);
+        this.orangeTriangle = new MyTriangleBig(scene, MyTriangleBigColors.ORANGE);
         this.parallelogram = new MyParallelogram(scene);
-        this.lightBlueTriangle = new MyTriangleSmall(scene, MyTriangleSmallColors.LIGHT_BLUE);
-        this.blueTriangle = new MyTriangleSmall(scene, MyTriangleSmallColors.BLUE);
+        this.redTriangle = new MyTriangleSmall(scene, MyTriangleSmallColors.RED);
+        this.purpleTriangle = new MyTriangleSmall(scene, MyTriangleSmallColors.PURPLE);
 
         this.texture = new CGFtexture(scene, 'images/tangram.png');
 
@@ -18,38 +18,38 @@ class MyTangram extends CGFobject {
     }
 
     initMaterials() {
-        this.materialOrange = new CGFappearance(this.scene);
-        this.materialOrange.loadTexture('images/tangram.png');
-        this.materialOrange.setTextureWrap('REPEAT', 'REPEAT');
-
         this.materialGreen = new CGFappearance(this.scene);
         this.materialGreen.loadTexture('images/tangram.png');
         this.materialGreen.setTextureWrap('REPEAT', 'REPEAT');
-
-        this.materialRed = new CGFappearance(this.scene);
-        this.materialRed.loadTexture('images/tangram.png');
-        this.materialRed.setTextureWrap('REPEAT', 'REPEAT');
 
         this.materialPink = new CGFappearance(this.scene);
         this.materialPink.loadTexture('images/tangram.png');
         this.materialPink.setTextureWrap('REPEAT', 'REPEAT');
 
+        this.materialBlue = new CGFappearance(this.scene);
+        this.materialBlue.loadTexture('images/tangram.png');
+        this.materialBlue.setTextureWrap('REPEAT', 'REPEAT');
+
+        this.materialOrange = new CGFappearance(this.scene);
+        this.materialOrange.loadTexture('images/tangram.png');
+        this.materialOrange.setTextureWrap('REPEAT', 'REPEAT');
+
         this.materialYellow = new CGFappearance(this.scene);
         this.materialYellow.loadTexture('images/tangram.png');
         this.materialYellow.setTextureWrap('REPEAT', 'REPEAT');
 
-        this.materialLightBlue = new CGFappearance(this.scene);
-        this.materialLightBlue.loadTexture('images/tangram.png');
-        this.materialLightBlue.setTextureWrap('REPEAT', 'REPEAT');
+        this.materialRed = new CGFappearance(this.scene);
+        this.materialRed.loadTexture('images/tangram.png');
+        this.materialRed.setTextureWrap('REPEAT', 'REPEAT');
 
-        this.materialBlue = new CGFappearance(this.scene);
-        this.materialBlue.loadTexture('images/tangram.png');
-        this.materialBlue.setTextureWrap('REPEAT', 'REPEAT');
+        this.materialPurple = new CGFappearance(this.scene);
+        this.materialPurple.loadTexture('images/tangram.png');
+        this.materialPurple.setTextureWrap('REPEAT', 'REPEAT');
     }
 
     display() {
         // DIAMOND
-        this.materialOrange.apply();
+        this.materialGreen.apply();
         this.scene.pushMatrix();
         this.scene.translate(-2, 0, 0);
         this.scene.rotate(degToRad(15), 0, 0, 1);
@@ -57,27 +57,27 @@ class MyTangram extends CGFobject {
         this.diamond.display();
         this.scene.popMatrix();
 
-        // GREEN TRIANGLE
-        this.materialGreen.apply();
-        this.scene.pushMatrix();
-        this.scene.translate(-3, 1, 0);
-        this.scene.rotate(degToRad(180), 0, 0, 1);
-        this.greenTriangle.display();
-        this.scene.popMatrix();
-
-        // RED TRIANGLE
-        this.materialRed.apply();
-        this.scene.pushMatrix();
-        this.scene.translate(-2, 0, 0);
-        this.scene.rotate(degToRad(-90), 0, 0, 1);
-        this.redTriangle.display();
-        this.scene.popMatrix();
-
         // PINK TRIANGLE
         this.materialPink.apply();
         this.scene.pushMatrix();
-        this.scene.rotate(degToRad(-45), 0, 0, 1);
+        this.scene.translate(-3, 1, 0);
+        this.scene.rotate(degToRad(180), 0, 0, 1);
         this.pinkTriangle.display();
+        this.scene.popMatrix();
+
+        // BLUE TRIANGLE
+        this.materialBlue.apply();
+        this.scene.pushMatrix();
+        this.scene.translate(-2, 0, 0);
+        this.scene.rotate(degToRad(-90), 0, 0, 1);
+        this.blueTriangle.display();
+        this.scene.popMatrix();
+
+        // ORANGE TRIANGLE
+        this.materialOrange.apply();
+        this.scene.pushMatrix();
+        this.scene.rotate(degToRad(-45), 0, 0, 1);
+        this.orangeTriangle.display();
         this.scene.popMatrix();
 
         // PARALLELOGRAM
@@ -89,20 +89,20 @@ class MyTangram extends CGFobject {
         this.parallelogram.display();
         this.scene.popMatrix();
 
-        // LIGHT BLUE TRIANGLE
-        this.materialLightBlue.apply();
+        // RED TRIANGLE
+        this.materialRed.apply();
         this.scene.pushMatrix();
         this.scene.translate(1.7, -1.7, 0);
         this.scene.rotate(degToRad(135), 0, 0, 1);
-        this.lightBlueTriangle.display();
+        this.redTriangle.display();
         this.scene.popMatrix();
 
         // BLUE TRIANGLE
-        this.materialBlue.apply();
+        this.materialPurple.apply();
         this.scene.pushMatrix();
         this.scene.translate(2.5 * Math.SQRT2, -Math.SQRT2, 0);
         this.scene.rotate(degToRad(135), 0, 0, 1);
-        this.blueTriangle.display();
+        this.purpleTriangle.display();
         this.scene.popMatrix();
     }
 

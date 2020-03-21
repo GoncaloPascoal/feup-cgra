@@ -3,8 +3,8 @@
  */
 
 var MyTriangleBigColors = {
-    RED: 0,
-    PINK: 1
+    BLUE: 0,
+    ORANGE: 1
 };
 
 class MyTriangleBig extends CGFobject {
@@ -36,7 +36,7 @@ class MyTriangleBig extends CGFobject {
 
         this.texCoords = [];
 
-        if (color == MyTriangleBigColors.RED) {
+        if (color == MyTriangleBigColors.BLUE) {
             this.texCoords.push(
                 1, 0,
                 0, 0,
@@ -46,7 +46,7 @@ class MyTriangleBig extends CGFobject {
                 0.5, 0.5
             );
         }
-        else if (color == MyTriangleBigColors.PINK) {
+        else if (color == MyTriangleBigColors.ORANGE) {
             this.texCoords.push(
                 1, 0,
                 1, 1,
