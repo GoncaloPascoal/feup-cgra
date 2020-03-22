@@ -25,6 +25,7 @@ class MyScene extends CGFscene {
         this.axis = new CGFaxis(this);
         this.quad = new MyQuad(this);
         this.tangram = new MyTangram(this);
+        this.unitCube = new MyUnitCubeQuad(this);
 
         //------ Applied Material
         this.quadMaterial = new CGFappearance(this);
@@ -46,6 +47,7 @@ class MyScene extends CGFscene {
         this.displayAxis = true;
         this.displayQuad = true;
         this.displayTangram = false;
+        this.displayCube = false;
         this.scaleFactor = 1;
         this.selectedTexture = -1;        
         this.wrapS = 0;
@@ -130,6 +132,10 @@ class MyScene extends CGFscene {
 
         if (this.displayTangram) {
             this.tangram.display();
+        }
+
+        if (this.displayCube) {
+            this.unitCube.display();
         }
 
 
