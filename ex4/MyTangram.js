@@ -19,32 +19,46 @@ class MyTangram extends CGFobject {
 
     initMaterials() {
         this.materialGreen = new CGFappearance(this.scene);
-        this.materialGreen.loadTexture('images/tangram.png');
-        this.materialGreen.setTextureWrap('REPEAT', 'REPEAT');
+        this.materialGreen.setAmbient(...hexToRGBA("#48bf21"));
+        this.materialGreen.setDiffuse(...hexToRGBA("#48bf21"));
+        this.materialGreen.setSpecular(...hexToRGBA("#c8ffb5"));
 
         this.materialPink = new CGFappearance(this.scene);
-        this.materialPink.loadTexture('images/tangram.png');
-        this.materialPink.setTextureWrap('REPEAT', 'REPEAT');
+        this.materialPink.setAmbient(...hexToRGBA("#e65aa4"));
+        this.materialPink.setDiffuse(...hexToRGBA("#e65aa4"));
+        this.materialPink.setSpecular(...hexToRGBA("#ffc9ed"));
 
         this.materialBlue = new CGFappearance(this.scene);
-        this.materialBlue.loadTexture('images/tangram.png');
-        this.materialBlue.setTextureWrap('REPEAT', 'REPEAT');
+        this.materialBlue.setAmbient(...hexToRGBA("#30b6ba"));
+        this.materialBlue.setDiffuse(...hexToRGBA("#30b6ba"));
+        this.materialBlue.setSpecular(...hexToRGBA("#bffbff"));
 
         this.materialOrange = new CGFappearance(this.scene);
-        this.materialOrange.loadTexture('images/tangram.png');
-        this.materialOrange.setTextureWrap('REPEAT', 'REPEAT');
+        this.materialOrange.setAmbient(...hexToRGBA("#eb6a0c"));
+        this.materialOrange.setDiffuse(...hexToRGBA("#eb6a0c"));
+        this.materialOrange.setSpecular(...hexToRGBA("#ffddc4"));
 
         this.materialYellow = new CGFappearance(this.scene);
-        this.materialYellow.loadTexture('images/tangram.png');
-        this.materialYellow.setTextureWrap('REPEAT', 'REPEAT');
+        this.materialYellow.setAmbient(...hexToRGBA("#fffc19"));
+        this.materialYellow.setDiffuse(...hexToRGBA("#fffc19"));
+        this.materialYellow.setSpecular(...hexToRGBA("#fffead"));
 
         this.materialRed = new CGFappearance(this.scene);
-        this.materialRed.loadTexture('images/tangram.png');
-        this.materialRed.setTextureWrap('REPEAT', 'REPEAT');
+        this.materialRed.setAmbient(...hexToRGBA("#cf1919"));
+        this.materialRed.setDiffuse(...hexToRGBA("#cf1919"));
+        this.materialRed.setSpecular(...hexToRGBA("#ffabab"));
 
         this.materialPurple = new CGFappearance(this.scene);
-        this.materialPurple.loadTexture('images/tangram.png');
-        this.materialPurple.setTextureWrap('REPEAT', 'REPEAT');
+        this.materialPurple.setAmbient(...hexToRGBA("#902ee8"));
+        this.materialPurple.setDiffuse(...hexToRGBA("#902ee8"));
+        this.materialPurple.setSpecular(...hexToRGBA("#d8adff"));
+
+        for (var material of [this.materialGreen, this.materialPink, this.materialBlue, this.materialOrange, this.materialYellow,
+        this.materialRed, this.materialPurple]) {
+            material.loadTexture('images/tangram.png');
+            material.setTextureWrap('REPEAT', 'REPEAT');
+            material.setShininess(10.0);
+        }
     }
 
     display() {
