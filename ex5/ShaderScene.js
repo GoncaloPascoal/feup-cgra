@@ -57,6 +57,9 @@ class ShaderScene extends CGFscene {
 
 		this.texture2 = new CGFtexture(this, "textures/FEUP.jpg");
 
+		this.waterTexture = new CGFtexture(this, "textures/waterTex.jpg");
+		this.waterMap = new CGFtexture(this, "textures/waterMap.jpg");
+
 		// shaders initialization
 
 		this.testShaders = [
@@ -70,7 +73,8 @@ class ShaderScene extends CGFscene {
 			new CGFshader(this.gl, "shaders/texture1.vert", "shaders/sepia.frag"),
 			new CGFshader(this.gl, "shaders/texture1.vert", "shaders/convolution.frag"),
 			new CGFshader(this.gl, "shaders/teapot.vert", "shaders/teapot.frag"),
-			new CGFshader(this.gl, "shaders/texture1.vert", "shaders/grayscale.frag")
+			new CGFshader(this.gl, "shaders/texture1.vert", "shaders/grayscale.frag"),
+			new CGFshader(this.gl, "shaders/water.vert", "shaders/water.frag")
 		];
 
 		// additional texture will have to be bound to texture unit 1 later, when using the shader, with "this.texture2.bind(1);"
@@ -78,7 +82,7 @@ class ShaderScene extends CGFscene {
 		this.testShaders[5].setUniformsValues({ uSampler2: 1 });
 		this.testShaders[6].setUniformsValues({ uSampler2: 1 });
 		this.testShaders[6].setUniformsValues({ timeFactor: 0 });
-
+		this.testShaders[11].setUniformsValues({ uSampler2: 1 });
 
 		// Shaders interface variables
 
@@ -93,7 +97,8 @@ class ShaderScene extends CGFscene {
 			'Sepia': 7,
 			'Convolution': 8,
 			'Yellow Blue': 9,
-			'Grayscale': 10
+			'Grayscale': 10,
+			'Water': 11
 		};
 
 		// shader code panels references
@@ -149,6 +154,13 @@ class ShaderScene extends CGFscene {
 
 		// update scale factor
 		this.onScaleFactorChanged(this.scaleFactor);
+
+		if (v == this.shadersList.Water) {
+			this.appearance.setTexture(this.waterTexture);
+		}
+		else {
+			this.appearance.setTexture(this.texture);
+		}
 	}
 
 	// called when a new object is selected
@@ -198,7 +210,7 @@ class ShaderScene extends CGFscene {
 		// Draw axis
 		this.axis.display();
 
-		// aplly main appearance (including texture in default texture unit 0)
+		// apply main appearance (including texture in default texture unit 0)
 		this.appearance.apply();
 
 		// activate selected shader
@@ -206,7 +218,12 @@ class ShaderScene extends CGFscene {
 		this.pushMatrix();
 
 		// bind additional texture to texture unit 1
-		this.texture2.bind(1);
+		if (this.selectedExampleShader == this.shadersList.Water) {
+			this.waterMap.bind(1);
+		}
+		else {
+			this.texture2.bind(1);
+		}
 
 		if (this.selectedObject==0) {
 			// teapot (scaled and rotated to conform to our axis)
