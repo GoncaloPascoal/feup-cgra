@@ -4,8 +4,7 @@ serialInclude=function(a){var b=console,c=serialInclude.l;if(a.length>0)c.splice
 
 serialInclude(['../lib/CGF.js', 'ShaderScene.js', 'Teapot.js', 'MyInterface.js', 'MyPlane.js',
 
-main=function()
-{
+main=function() {
     var app = new CGFapplication(document.body);
     var myScene = new ShaderScene();
     var myInterface = new MyInterface();

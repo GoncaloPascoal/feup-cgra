@@ -1,23 +1,20 @@
 
-class MyInterface extends CGFinterface
-{
+class MyInterface extends CGFinterface {
 
 	/**
 	* MyInterface
 	* @constructor
 	*/
-	constructor()
-	{
-		//call CGFinterface constructor 
+	constructor() {
+		// call CGFinterface constructor 
 		super();
-		
 	};
+
 	/**
 	* init
 	* @param {CGFapplication} application
 	*/
-	init(application) 
-	{
+	init(application) {
 		// call CGFinterface init
 		super.init(application);
 		
